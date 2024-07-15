@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(YoApp());
+
+class YoApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Yo App',
+      home: YoScreen(),
+    );
+  }
+}
+
+class YoScreen extends StatelessWidget {
+  void _showYoMessage(BuildContext context) {
+    final snackBar = SnackBar(content: Text('Yo'));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Yo App'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => _showYoMessage(context),
+          child: Text(
+            'Yo',
+            style: TextStyle(fontSize: 50), // Size text
+          ),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red, // Color button
+            padding: EdgeInsets.symmetric(horizontal: 60, vertical: 30), // Size button
+          ),
+        ),
+      ),
+    );
+  }
+}
